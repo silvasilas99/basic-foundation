@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,10 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('category/all', [CategoriesController::class, 'index'])->name('index_category');
+Route::get('category/create', [CategoriesController::class, 'create'])->name('create_category');
+Route::post('category/', [CategoriesController::class, 'store'])->name('store_category');
+Route::get('category/edit/{id}', [CategoriesController::class, 'edit'])->name('edit_category');
+Route::put('category/update/{id}', [CategoriesController::class, 'update'])->name('update_category');
+Route::delete('category/delete/{id}', [CategoriesController::class, 'destroy'])->name('destroy_category');
