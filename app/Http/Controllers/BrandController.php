@@ -39,12 +39,18 @@ class BrandController extends Controller
     {
         $validatedData = $request->validate([
             'brand_name' => 'required|unique:brands|min:4|max:255',
+            'brand_desc' => 'required|unique:brands|min:4|max:255',
             'brand_image' => 'required|mimes:png,jpg,jpeg'
         ],
         [
             'brand_name.required' => 'Please insert a brand name',
             'brand_name.max' => 'Brand less then 255 chars',
             'brand_name.min' => 'Brand longer then 4 chars'
+        ],
+        [
+            'brand_desc.required' => 'Please insert a brand description',
+            'brand_desc.max' => 'Brand less then 255 chars',
+            'brand_desc.min' => 'Brand longer then 4 chars'
         ]);
 
         $brand_image = $request->file('brand_image');
@@ -59,6 +65,7 @@ class BrandController extends Controller
         Brand::insert([
             'brand_name' => $request->brand_name,
             'brand_image' => $last_img,
+            'brand_desc' => $request->brand_desc,
             'created_at' => Carbon::now()
         ]);
 
@@ -84,7 +91,10 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand = Brand::find($id);
+        return view('admin.brand.edit', [
+            'brand' => $brand
+        ]);
     }
 
     /**
@@ -96,7 +106,9 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brand = Brand::find($id);
+        $brand->fill($request->all());
+        $brand->update();
     }
 
     /**
@@ -107,6 +119,6 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

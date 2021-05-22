@@ -10,6 +10,7 @@ class Brand extends Model
     use HasFactory;
     protected $fillable = [
         'brand_name',
-        'brand_image'
+        'brand_image',
+        'brand_desc'
     ];
 }

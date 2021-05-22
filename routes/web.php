@@ -15,9 +15,10 @@ use App\Http\Controllers\BrandController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
+    return view('dashboard');
 });
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -35,3 +36,5 @@ Route::delete('category/delete/{id}', [CategoriesController::class, 'destroy'])-
 Route::get('brand/all', [BrandController::class, 'index'])->name('index_brand');
 Route::get('brand/create', [BrandController::class, 'create'])->name('create_brand');
 Route::post('brand/', [BrandController::class, 'store'])->name('store_brand');
+Route::get('brand/edit/{id}', [BrandController::class, 'edit'])->name('edit_brand');
+Route::put('brand/update/{id}', [BrandController::class, 'update'])->name('update_brand');
