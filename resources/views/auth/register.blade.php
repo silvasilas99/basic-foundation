@@ -61,15 +61,15 @@
     <body class="bg-white">
         <!-- url('/img/hero-pattern.svg') -->
         <div class="flex min-h-screen bg-white">
-    
-            <div class="w-1/2 bg-cover md:block hidden" style="background-image:  url(https://www.gamerview.com.br/wp-content/uploads/2019/10/The-King-of-Fighters-All-Star_bg.jpg)"></div>
+
+            <div class="w-1/2 bg-cover md:block hidden" style="background-image:  url(https://imgur.com/zLw8Fem.png)"></div>
             <!-- <div class="bg-no-repeat bg-right bg-cover max-w-max max-h-8 h-12 overflow-hidden">
                 <img src="log_in.webp" alt="hey">
             </div> -->
-    
-    
+
+
             <div class="md:w-1/2 max-w-lg mx-auto my-24 px-4 py-5 shadow-none">
-    
+
                 <div class="text-left p-0 font-sans">
                     <h1 class=" text-gray-800 text-3xl font-medium">Come to us, create your account</h1>
                 </div>
@@ -91,7 +91,7 @@
                         <label for="password_confirmation" class="sc-bqyKva ePvcBv">Confirm password</label>
                         <input type="password" id="password_confirmation" name="password_confirmation" class="block w-full p-2 border rounded border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent" placeholder="New password confirmation" required>
                     </div>
-    
+
                     <div class="mt-10">
                         <input type="submit" value="Sign up" class="py-3 bg-purple-500 text-white w-full rounded hover:bg-purple-700">
                     </div>
